@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Comparing serial with caching; RESIZEs included in data file"
+
+colordiff <(serial/summarize.py < data/resize.rects) \
+          <(caching/summarize.py < data/resize.rects)
