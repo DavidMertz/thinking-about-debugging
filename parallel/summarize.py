@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     # Wait for the threads to empty rect_deq
     while rect_deq:
-        sleep(0.1)
+        sleep(0.01)
     area_to_counter()
 
     print("Number of rectangles computed:", sum(rect_areas.values()))

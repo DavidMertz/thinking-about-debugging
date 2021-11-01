@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "Please specify the tool version by directory name"
+    exit
+else
+    echo "Displaying head of $1 version and saving full results"
+fi
+time $1/summarize.py < data/create.rects | tee $1.results | head -20

@@ -6,7 +6,7 @@ class Rectangle():
     "Define a rectangle object on Cartesian plane"
     def __init__(self, bottom: float, left: float, top: float, right: float):
         "Creation of a rectangle is expensive"
-        sleep(0.003*random())
+        sleep(0.003*random())  # EXPENSIVE
         assert top >= bottom
         assert right >= left
         self.bottom = bottom
@@ -16,12 +16,12 @@ class Rectangle():
 
     def area(self):
         "Suppose that area calculation is expensive"
-        sleep(0.005 * random())
+        sleep(0.005 * random())  # EXPENSIVE
         return (self.top - self.bottom) * (self.right - self.left)
 
     def move(self, vertical: float, horizontal: float):
         "Moving rectangle is expensive"
-        sleep(0.003 * random())
+        sleep(0.003 * random())  # EXPENSIVE
         self.top += vertical
         self.left += vertical
         self.bottom += horizontal
@@ -30,7 +30,7 @@ class Rectangle():
 
     def resize(self, vertical: float, horizontal: float):
         "Resizing rectangle is expensive"
-        sleep(0.003 * random())
+        sleep(0.003 * random())  # EXPENSIVE
         self.top = vertical * (self.top-self.bottom) + self.bottom
         self.right = horizontal * (self.right-self.left) + self.left
         return self
