@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Please specify the tool version by directory name"
+    exit
+else
+    echo "Testing number of rectangles in $1 version"
+fi
+
+for i in {1..50}; do
+    $1/summarize.py < data/create.rects | head -1
+done

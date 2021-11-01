@@ -2,6 +2,7 @@
 import sys
 from collections import Counter
 from functools import cache
+from operator import itemgetter
 from rectangle import Rectangle
 
 # Keep a count of each area a rectangle might have
@@ -53,7 +54,10 @@ if __name__ == '__main__':
     read_rectangles()
     rect_to_area()
     area_to_counter()
+
     print("Number of rectangles computed:", sum(rect_areas.values()))
     print("Most common rectangle areas:")
-    for area, count in rect_areas.most_common(20):
+    most_common = sorted(rect_areas.most_common(),
+                         key=itemgetter(1), reverse=True)
+    for area, count in most_common:
         print("  Area %s\t%d rectangles" % (area, count))

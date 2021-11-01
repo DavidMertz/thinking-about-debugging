@@ -4,6 +4,7 @@ import os
 from threading import Thread
 from queue import Queue, LifoQueue
 from functools import cache
+from operator import itemgetter
 from collections import Counter
 from rectangle import Rectangle
 
@@ -41,6 +42,7 @@ def read_rectangles():
             rect_queue.put(rect)
             rect_queue.put(new_rect)
 
+
 def rect_to_area():
     while not rect_queue.empty():
         rect = rect_queue.get()
@@ -63,5 +65,7 @@ if __name__ == '__main__':
 
     print("Number of rectangles computed:", sum(rect_areas.values()))
     print("Most common rectangle areas:")
-    for area, count in rect_areas.most_common(20):
+    most_common = sorted(rect_areas.most_common(),
+                         key=itemgetter(1), reverse=True)
+    for area, count in most_common:
         print("  Area %s\t%d rectangles" % (area, count))

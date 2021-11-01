@@ -9,7 +9,7 @@ class Rectangle():
         "Creation of a rectangle is expensive"
         sleep(0.003*random())
         assert top >= bottom
-        assert right >= right
+        assert right >= left
         self.bottom = bottom
         self.left = left
         self.top = top

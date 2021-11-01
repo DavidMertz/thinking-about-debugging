@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Comparing serial with caching; MOVEs included in data file"
+
+colordiff <(serial/summarize.py < data/move.rects) \
+          <(caching/summarize.py < data/move.rects)
